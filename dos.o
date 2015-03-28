@@ -1,5 +1,0 @@
-dos.o: dos.c code_ctrl.h server.h true_false.h sim.h plugins/i/i.h \
- plugins/i/true_false.h const.h sim_modes.h version.h device.h light.h \
- dos.h dos_types.h exp.h plot.h util.h dump.h plugins/i/frame.h \
- dump_ctrl.h complex_solver.h config.h solver.h advmath.h \
- light_interface.h newton.h
