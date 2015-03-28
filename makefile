@@ -223,7 +223,7 @@ memory.o: memory.c
 	gcc -c memory.c -o memory.o $(inc) $(flags) $(opt_normal) $(warn)
 
 dos.o: dos.c
-	gcc -MM -c dos.c -o dos.o $(inc)  $(flags)  $(opt_fast) $(warn)
+	gcc -c dos.c -o dos.o $(inc)  $(flags)  $(opt_fast) $(warn)
 excite.o: excite.c
 	gcc -c excite.c -o excite.o  $(inc) $(flags) $(opt_normal) $(warn)
 
