@@ -23,7 +23,7 @@ else
 	opt_slow=-O0
 	opt_normal=-O2 
 	opt_fast=-O5
-	warn=-Werror -Wall
+	warn=-Wall
 	debug_opt=-pg  -ggdb -g
 endif
 
@@ -47,7 +47,7 @@ endif
 
         link+= -lz
         flags=${debug_opt} -D dos_bin
-        inc+=-I/usr/include/suitesparse/ -I ./plugins/i/
+	inc+= -I/usr/include/suitesparse/ -I/usr/include/suitesparse/UMFPACK/Include -I/usr/include/suitesparse/SuiteSparse_config -I/usr/include/suitesparse/AMD/Include -I ./plugins/i/ -I ./plugins/lock_stub/ -I/usr/src/linux-headers-3.13.0-45/include -I/usr/src/linux-headers-3.13.0-45/arch/x86/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include
 .PHONY: clean
 
 main: main.c solver.o light_utils.o gui_hooks.o sim_find_n0.o sim_run.o newton_update.o  pos.o inital.o advmath.o config.o plot.o memory.o dos.o gendosfdgaus.o exp.o time.o fast.o anal.o dump.o ntricks.o dos_an.o startstop.o render1d.o complex_solver.o dump_slice.o thermal.o light_interface.o dump_ctrl.o light_dump.o light_test.o inp.o buffer.o
@@ -223,7 +223,7 @@ memory.o: memory.c
 	gcc -c memory.c -o memory.o $(inc) $(flags) $(opt_normal) $(warn)
 
 dos.o: dos.c
-	gcc -c dos.c -o dos.o $(inc)  $(flags)  $(opt_fast) $(warn)
+	gcc -MM -c dos.c -o dos.o $(inc)  $(flags)  $(opt_fast) $(warn)
 excite.o: excite.c
 	gcc -c excite.c -o excite.o  $(inc) $(flags) $(opt_normal) $(warn)
 
